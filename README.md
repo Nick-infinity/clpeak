@@ -5,7 +5,7 @@
 
 A synthetic benchmarking tool to measure peak capabilities of opencl devices. It only measures the peak metrics that can be achieved using vector operations and does not represent a real-world use case
 
-## Building
+## Building x86 & Windows
 
 ```console
 git submodule update --init --recursive --remote
@@ -14,6 +14,24 @@ cd build
 cmake ..
 cmake --build .
 ```
+
+## Android app native library build support is disabled
+## Building Android Native C++ Binary
+```console
+git submodule update --init --recursive --remote
+cd android/app/src/main/cpp
+./scripts/local/build.sh
+```
+
+## Running Native binary on android
+```console
+adb push build_arm64-v8a/clpeak /data/local/tmp/
+export LD_LIBRARY_PATH=/data/local/tmp/:/vendor/lib64/:/system/lib64/
+cd /data/local/tmp/
+./clpeak
+```
+
+
 
 ## Sample
 
